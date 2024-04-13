@@ -11,9 +11,9 @@ public interface JobAlarm {
     /**
      * job alarm
      *
-     * @param info
-     * @param jobLog
-     * @return
+     * @param info info
+     * @param jobLog jobLog
+     * @return boolean
      */
     boolean doAlarm(XxlJobInfo info, XxlJobLog jobLog);
 
