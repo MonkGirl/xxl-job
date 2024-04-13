@@ -21,7 +21,7 @@
         <!-- slf4j -->
         <dependency>
             <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-log4j12</artifactId>
+            <artifactId>slf4j-reload4j</artifactId>
             <version>${slf4j-api.version}</version>
         </dependency>
         <!-- junit -->
@@ -40,6 +40,12 @@
         </dependency>
 
     </dependencies>
+    <repositories>
+        <repository>
+            <id>maven2</id>
+            <url>https://repo.maven.apache.org/maven2/</url>
+        </repository>
+    </repositories>
 
 
 </project>

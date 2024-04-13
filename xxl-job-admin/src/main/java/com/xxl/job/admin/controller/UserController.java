@@ -57,7 +57,7 @@ public class UserController {
         int list_count = xxlJobUserDao.pageListCount(start, length, username, role);
 
         // filter
-        if (list!=null && list.size()>0) {
+        if (list!=null && !list.isEmpty()) {
             for (XxlJobUser item: list) {
                 item.setPassword(null);
             }
@@ -154,7 +154,7 @@ public class UserController {
     public ReturnT<String> updatePwd(HttpServletRequest request, String password){
 
         // valid password
-        if (password==null || password.trim().length()==0){
+        if (password==null || password.trim().isEmpty()){
             return new ReturnT<String>(ReturnT.FAIL.getCode(), "密码不可为空");
         }
         password = password.trim();

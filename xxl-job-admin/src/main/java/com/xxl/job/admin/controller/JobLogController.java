@@ -40,7 +40,7 @@ import java.util.Map;
 @Controller
 @RequestMapping("/joblog")
 public class JobLogController {
-	private static Logger logger = LoggerFactory.getLogger(JobLogController.class);
+	private static final Logger logger = LoggerFactory.getLogger(JobLogController.class);
 
 	@Resource
 	private XxlJobGroupDao xxlJobGroupDao;
@@ -57,7 +57,7 @@ public class JobLogController {
 
 		// filter group
 		List<XxlJobGroup> jobGroupList = JobInfoController.filterJobGroupByRole(request, jobGroupList_all);
-		if (jobGroupList==null || jobGroupList.size()==0) {
+		if (jobGroupList==null || jobGroupList.isEmpty()) {
 			throw new XxlJobException(I18nUtil.getString("jobgroup_empty"));
 		}
 
@@ -99,7 +99,7 @@ public class JobLogController {
 		// parse param
 		Date triggerTimeStart = null;
 		Date triggerTimeEnd = null;
-		if (filterTime!=null && filterTime.trim().length()>0) {
+		if (filterTime!=null && !filterTime.trim().isEmpty()) {
 			String[] temp = filterTime.split(" - ");
 			if (temp.length == 2) {
 				triggerTimeStart = DateUtil.parseDateTime(temp[0]);
@@ -190,7 +190,7 @@ public class JobLogController {
 			runResult = executorBiz.kill(new KillParam(jobInfo.getId()));
 		} catch (Exception e) {
 			logger.error(e.getMessage(), e);
-			runResult = new ReturnT<String>(500, e.getMessage());
+			runResult = new ReturnT<>(500, e.getMessage());
 		}
 
 		if (ReturnT.SUCCESS_CODE == runResult.getCode()) {
@@ -235,10 +235,10 @@ public class JobLogController {
 		List<Long> logIds = null;
 		do {
 			logIds = xxlJobLogDao.findClearLogIds(jobGroup, jobId, clearBeforeTime, clearBeforeNum, 1000);
-			if (logIds!=null && logIds.size()>0) {
+			if (logIds!=null && !logIds.isEmpty()) {
 				xxlJobLogDao.clearLog(logIds);
 			}
-		} while (logIds!=null && logIds.size()>0);
+		} while (logIds!=null && !logIds.isEmpty());
 
 		return ReturnT.SUCCESS;
 	}

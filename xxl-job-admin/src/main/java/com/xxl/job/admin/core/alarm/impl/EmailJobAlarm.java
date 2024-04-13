@@ -89,7 +89,7 @@ public class EmailJobAlarm implements JobAlarm {
      *
      * @return
      */
-    private static final String loadEmailJobAlarmTemplate(){
+    private static String loadEmailJobAlarmTemplate(){
         String mailBodyTemplate = "<h5>" + I18nUtil.getString("jobconf_monitor_detail") + "：</span>" +
                 "<table border=\"1\" cellpadding=\"3\" style=\"border-collapse:collapse; width:80%;\" >\n" +
                 "   <thead style=\"font-weight: bold;color: #ffffff;background-color: #ff8c00;\" >" +
