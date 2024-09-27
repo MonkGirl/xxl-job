@@ -69,7 +69,5 @@ public class JobApiController {
             default:
                 return new ReturnT<String>(ReturnT.FAIL_CODE, "invalid request, uri-mapping(" + uri + ") not found.");
         }
-
     }
-
 }

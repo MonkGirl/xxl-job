@@ -31,5 +31,4 @@ public class AdminBizImpl implements AdminBiz {
     public ReturnT<String> registryRemove(RegistryParam registryParam) {
         return JobRegistryHelper.getInstance().registryRemove(registryParam);
     }
-
 }

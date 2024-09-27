@@ -12,7 +12,9 @@ public class RegistryParam implements Serializable {
     private String registryKey;
     private String registryValue;
 
-    public RegistryParam(){}
+    public RegistryParam() {
+    }
+
     public RegistryParam(String registryGroup, String registryKey, String registryValue) {
         this.registryGroup = registryGroup;
         this.registryKey = registryKey;
@@ -45,10 +47,10 @@ public class RegistryParam implements Serializable {
 
     @Override
     public String toString() {
-        return "RegistryParam{" +
-                "registryGroup='" + registryGroup + '\'' +
-                ", registryKey='" + registryKey + '\'' +
-                ", registryValue='" + registryValue + '\'' +
-                '}';
+        return "RegistryParam{"
+                + "registryGroup='" + registryGroup + '\''
+                + ", registryKey='" + registryKey + '\''
+                + ", registryValue='" + registryValue + '\''
+                + '}';
     }
 }

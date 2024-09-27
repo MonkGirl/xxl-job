@@ -13,11 +13,11 @@ import java.util.Date;
 import java.util.List;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-public class XxlJobInfoDaoTest {
-	private static Logger logger = LoggerFactory.getLogger(XxlJobInfoDaoTest.class);
+public class XxlJobInfoDAOTest {
+	private static Logger logger = LoggerFactory.getLogger(XxlJobInfoDAOTest.class);
 	
 	@Resource
-	private XxlJobInfoDao xxlJobInfoDao;
+	private XxlJobInfoDAO xxlJobInfoDao;
 	
 	@Test
 	public void pageList(){

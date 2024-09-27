@@ -9,10 +9,10 @@ import java.util.Date;
 import java.util.List;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-public class XxlJobLogGlueDaoTest {
+public class XxlJobLogGlueDAOTest {
 
     @Resource
-    private XxlJobLogGlueDao xxlJobLogGlueDao;
+    private XxlJobLogGlueDAO xxlJobLogGlueDao;
 
     @Test
     public void test(){

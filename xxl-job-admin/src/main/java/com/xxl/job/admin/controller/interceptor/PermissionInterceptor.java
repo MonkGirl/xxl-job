@@ -12,7 +12,7 @@ import org.springframework.web.method.HandlerMethod;
 import org.springframework.web.servlet.AsyncHandlerInterceptor;
 
 /**
- * 权限拦截
+ * 权限拦截.
  *
  * @author xuxueli 2015-12-12 18:09:04
  */
@@ -36,7 +36,7 @@ public class PermissionInterceptor implements AsyncHandlerInterceptor {
         PermissionLimit permission = method.getMethodAnnotation(PermissionLimit.class);
         if (permission != null) {
             needLogin = permission.limit();
-            needAdminUser = permission.adminuser();
+            needAdminUser = permission.adminUser();
         }
 
         if (needLogin) {
@@ -51,8 +51,6 @@ public class PermissionInterceptor implements AsyncHandlerInterceptor {
             }
             request.setAttribute(LoginService.LOGIN_IDENTITY_KEY, loginUser);
         }
-
         return true;    // proceed with the next interceptor
     }
-
 }
