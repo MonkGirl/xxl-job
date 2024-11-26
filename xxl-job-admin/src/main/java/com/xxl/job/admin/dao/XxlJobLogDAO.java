@@ -1,6 +1,7 @@
 package com.xxl.job.admin.dao;
 
 import com.xxl.job.admin.core.model.XxlJobLog;
+import org.apache.ibatis.annotations.MapKey;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
@@ -43,6 +44,7 @@ public interface XxlJobLogDAO {
 
     int delete(@Param("jobId") int jobId);
 
+    @MapKey("triggerDayCount")
     Map<String, Object> findLogReport(@Param("from") Date from,
                                       @Param("to") Date to);
 
