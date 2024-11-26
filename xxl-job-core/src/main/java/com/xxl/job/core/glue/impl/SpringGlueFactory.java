@@ -16,17 +16,16 @@ import java.lang.reflect.Modifier;
  * @author xuxueli 2018-11-01
  */
 public class SpringGlueFactory extends GlueFactory {
-    private static Logger LOGGER = LoggerFactory.getLogger(SpringGlueFactory.class);
+    private static Logger logger = LoggerFactory.getLogger(SpringGlueFactory.class);
 
 
     /**
      * inject action of spring
-     *
      * @param instance
      */
     @Override
-    public void injectService(Object instance) {
-        if (instance == null) {
+    public void injectService(Object instance){
+        if (instance==null) {
             return;
         }
 
@@ -46,33 +45,33 @@ public class SpringGlueFactory extends GlueFactory {
             if (AnnotationUtils.getAnnotation(field, Resource.class) != null) {
                 try {
                     Resource resource = AnnotationUtils.getAnnotation(field, Resource.class);
-                    if (resource.name() != null && resource.name().length() > 0) {
+                    if (resource.name()!=null && resource.name().length()>0){
                         fieldBean = XxlJobSpringExecutor.getApplicationContext().getBean(resource.name());
                     } else {
                         fieldBean = XxlJobSpringExecutor.getApplicationContext().getBean(field.getName());
                     }
                 } catch (Exception e) {
                 }
-                if (fieldBean == null) {
+                if (fieldBean==null ) {
                     fieldBean = XxlJobSpringExecutor.getApplicationContext().getBean(field.getType());
                 }
             } else if (AnnotationUtils.getAnnotation(field, Autowired.class) != null) {
                 Qualifier qualifier = AnnotationUtils.getAnnotation(field, Qualifier.class);
-                if (qualifier != null && qualifier.value() != null && qualifier.value().length() > 0) {
+                if (qualifier!=null && qualifier.value()!=null && qualifier.value().length()>0) {
                     fieldBean = XxlJobSpringExecutor.getApplicationContext().getBean(qualifier.value());
                 } else {
                     fieldBean = XxlJobSpringExecutor.getApplicationContext().getBean(field.getType());
                 }
             }
 
-            if (fieldBean != null) {
+            if (fieldBean!=null) {
                 field.setAccessible(true);
                 try {
                     field.set(instance, fieldBean);
                 } catch (IllegalArgumentException e) {
-                    LOGGER.error(e.getMessage(), e);
+                    logger.error(e.getMessage(), e);
                 } catch (IllegalAccessException e) {
-                    LOGGER.error(e.getMessage(), e);
+                    logger.error(e.getMessage(), e);
                 }
             }
         }

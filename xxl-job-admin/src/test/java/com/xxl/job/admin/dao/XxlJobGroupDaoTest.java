@@ -4,21 +4,21 @@ import com.xxl.job.admin.core.model.XxlJobGroup;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import jakarta.annotation.Resource;
+import javax.annotation.Resource;
 import java.util.Date;
 import java.util.List;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-public class XxlJobGroupDAOTest {
+public class XxlJobGroupDaoTest {
 
     @Resource
-    private XxlJobGroupDAO xxlJobGroupDao;
+    private XxlJobGroupDAO xxlJobGroupDAO;
 
     @Test
     public void test(){
-        List<XxlJobGroup> list = xxlJobGroupDao.findAll();
+        List<XxlJobGroup> list = xxlJobGroupDAO.findAll();
 
-        List<XxlJobGroup> list2 = xxlJobGroupDao.findByAddressType(0);
+        List<XxlJobGroup> list2 = xxlJobGroupDAO.findByAddressType(0);
 
         XxlJobGroup group = new XxlJobGroup();
         group.setAppname("setAppName");
@@ -27,18 +27,18 @@ public class XxlJobGroupDAOTest {
         group.setAddressList("setAddressList");
         group.setUpdateTime(new Date());
 
-        int ret = xxlJobGroupDao.save(group);
+        int ret = xxlJobGroupDAO.save(group);
 
-        XxlJobGroup group2 = xxlJobGroupDao.load(group.getId());
+        XxlJobGroup group2 = xxlJobGroupDAO.load(group.getId());
         group2.setAppname("setAppName2");
         group2.setTitle("setTitle2");
         group2.setAddressType(2);
         group2.setAddressList("setAddressList2");
         group2.setUpdateTime(new Date());
 
-        int ret2 = xxlJobGroupDao.update(group2);
+        int ret2 = xxlJobGroupDAO.update(group2);
 
-        int ret3 = xxlJobGroupDao.remove(group.getId());
+        int ret3 = xxlJobGroupDAO.remove(group.getId());
     }
 
 }

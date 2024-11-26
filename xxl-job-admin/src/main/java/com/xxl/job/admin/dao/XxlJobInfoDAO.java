@@ -46,4 +46,6 @@ public interface XxlJobInfoDAO {
     List<XxlJobInfo> scheduleJobQuery(@Param("maxNextTime") long maxNextTime, @Param("pagesize") int pagesize);
 
     int scheduleUpdate(XxlJobInfo xxlJobInfo);
+
+
 }

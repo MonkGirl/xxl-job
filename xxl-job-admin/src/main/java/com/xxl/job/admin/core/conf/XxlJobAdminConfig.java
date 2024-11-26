@@ -3,13 +3,13 @@ package com.xxl.job.admin.core.conf;
 import com.xxl.job.admin.core.alarm.JobAlarmer;
 import com.xxl.job.admin.core.scheduler.XxlJobScheduler;
 import com.xxl.job.admin.dao.*;
-import jakarta.annotation.Resource;
 import org.springframework.beans.factory.DisposableBean;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Component;
 
+import javax.annotation.Resource;
 import javax.sql.DataSource;
 import java.util.Arrays;
 
@@ -23,7 +23,6 @@ import java.util.Arrays;
 public class XxlJobAdminConfig implements InitializingBean, DisposableBean {
 
     private static XxlJobAdminConfig adminConfig = null;
-
     public static XxlJobAdminConfig getAdminConfig() {
         return adminConfig;
     }
@@ -77,7 +76,7 @@ public class XxlJobAdminConfig implements InitializingBean, DisposableBean {
     @Resource
     private XxlJobRegistryDAO xxlJobRegistryDao;
     @Resource
-    private XxlJobGroupDAO xxlJobGroupDao;
+    private XxlJobGroupDAO xxlJobGroupDAO;
     @Resource
     private XxlJobLogReportDAO xxlJobLogReportDao;
     @Resource
@@ -137,7 +136,7 @@ public class XxlJobAdminConfig implements InitializingBean, DisposableBean {
     }
 
     public XxlJobGroupDAO getXxlJobGroupDao() {
-        return xxlJobGroupDao;
+        return xxlJobGroupDAO;
     }
 
     public XxlJobLogReportDAO getXxlJobLogReportDao() {

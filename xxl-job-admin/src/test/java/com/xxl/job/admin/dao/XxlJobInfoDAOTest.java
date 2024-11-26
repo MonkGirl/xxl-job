@@ -8,7 +8,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import jakarta.annotation.Resource;
+import javax.annotation.Resource;
 import java.util.Date;
 import java.util.List;
 

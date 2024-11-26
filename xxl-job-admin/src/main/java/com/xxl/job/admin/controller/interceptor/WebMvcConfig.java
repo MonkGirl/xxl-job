@@ -1,12 +1,13 @@
 package com.xxl.job.admin.controller.interceptor;
 
-import jakarta.annotation.Resource;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
+import javax.annotation.Resource;
+
 /**
- * web mvc config.
+ * web mvc config
  *
  * @author xuxueli 2018-04-02 20:48:20
  */
@@ -23,4 +24,5 @@ public class WebMvcConfig implements WebMvcConfigurer {
         registry.addInterceptor(permissionInterceptor).addPathPatterns("/**");
         registry.addInterceptor(cookieInterceptor).addPathPatterns("/**");
     }
+
 }

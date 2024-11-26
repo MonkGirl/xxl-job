@@ -8,7 +8,7 @@ import java.util.Date;
 import java.util.List;
 
 /**
- * job log.
+ * job log
  *
  * @author xuxueli 2019-11-22
  */
@@ -21,5 +21,7 @@ public interface XxlJobLogReportDAO {
 
     List<XxlJobLogReport> queryLogReport(@Param("triggerDayFrom") Date triggerDayFrom,
                                          @Param("triggerDayTo") Date triggerDayTo);
+
     XxlJobLogReport queryLogReportTotal();
+
 }

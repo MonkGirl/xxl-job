@@ -29,4 +29,5 @@ public interface XxlJobUserDAO {
     int update(XxlJobUser xxlJobUser);
 
     int delete(@Param("id") int id);
+
 }

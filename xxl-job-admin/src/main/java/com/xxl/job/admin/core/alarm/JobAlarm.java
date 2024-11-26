@@ -9,7 +9,7 @@ import com.xxl.job.admin.core.model.XxlJobLog;
 public interface JobAlarm {
 
     /**
-     * job alarm.
+     * job alarm
      *
      * @param info info
      * @param jobLog jobLog
